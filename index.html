@@ -1,16 +1,260 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-<link rel="canonical" href="http://greenplum.org/"/>
-<title>Greenplum</title>
-</head>
-<body>
-<center>
-<img src='logo-greenplum.png'>
-<h1>Coming to a GitHub near you!</h1>
-</center>
-</body>
-</html>
 
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+<link rel="canonical" href="http://greenplum.org/"/>
+
+<title>GREENPLUM DATABASE</title>
+
+<link href='images/favicon.ico' rel='shortcut icon' type='image/vnd.microsoft.icon'>
+
+<link rel="stylesheet" type="text/css" href="style/master.css">
+
+<script src="script/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="script/matchHeight.js" type="text/javascript"></script>
+<script src="script/master.js" type="text/javascript"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-69171123-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+  <body>
+
+    <div id='billboard'>
+      <div class='container'>
+        <img src='images/logo-greenplum.png'>
+        <h1>The World's First Open Source<br/>Massively Parallel Data Warehouse</h1>
+        <div class='cta'><a href='https://github.com/greenplum-db/gpdb'>Get the Code</a></div>
+        <div class='cta'><a href='https://github.com/greenplum-db/gpdb-sandbox-tutorials'>Get the Sandbox</a></div>
+      </div>
+    </div>
+
+    <div id='nav'>
+      <div class='container'>
+        <div class='float-left'>
+          <a href="#contribute">Contribute</a>
+          <a href="#mailing-lists">Mailing Lists</a>
+          <a href="#events">Events</a>
+        </div>
+        <div class='float-right'>
+          <a href="https://github.com/greenplum-db/greenplum-db.github.io/wiki">Wiki</a>
+          <a href="http://gpdb.docs.pivotal.io/4360/common/welcome.html">Documentation</a>
+          <a href="https://github.com/greenplum-db/gpdb">Code</a>
+          <a href="https://github.com/greenplum-db/gpdb-sandbox-tutorials">Sandbox</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div id='intro-text'>
+      <div class='container'>
+        <p>
+          The Greenplum Database is an advanced, fully featured, open source data warehouse. It provides powerful and rapid analytics on petabyte scale data volumes. Uniquely geared toward big data analytics, Greenplum Database is powered by the world’s most advanced cost-based query optimizer delivering high analytical query performance on large data volumes.
+        </p>
+        <p>
+          The Greenplum project is released under the <a href='http://www.apache.org/licenses/LICENSE-2.0'>Apache 2 license</a>. We want to thank all our current community contributors and are interested in all new potential contributions. For the Greenplum Database community no contribution is too small, we encourage all types of contributions. 
+        </p>
+      </div>
+    </div>
+
+    <div id='features'>
+      <div class='container'>
+        <h2>Originally based on PostgreSQL, Greenplum Database has added a significant number of data warehouse innovations.</h2>
+      </div>
+      <div class='container'>
+        <div class='feature'>
+          <div class='img'><img src='images/features/icon-buildingblocks.png'></div>
+          <h4>Massively Parallel <br />Processing Architecture</h4>
+          <p>The Greenplum Database architecture provides automatic parallelization of all data and queries.</p>
+        </div>
+        <div class='feature'>
+          <div class='img'><img src='images/features/icon-scaling.png'></div>
+          <h4>Petabyte-Scale Loading</h4>
+          <p>High-performance loading uses MPP technology. Loading speeds scale with each additional node to greater than 10 terabytes per hour, per rack.</p>
+        </div>
+        <div class='feature'>
+          <div class='img'><img src='images/features/icon-innovation.png'></div>
+          <h4>Innovative Query Optimizer</h4>
+          <p>The query optimizer available in Greenplum Database is the industry’s first cost-based query optimizer for big data workloads. It can scale interactive and batch mode analytics to large datasets in the petabytes without degrading query performance and throughput.</p>
+        </div>
+        <div class='feature'>
+          <div class='img'><img src='images/features/icon-storage.png'></div>
+          <h4>Polymorphic Data Storage and Execution</h4>
+          <p>The table or partition storage, execution, and compression settings can be configured to suit the way data is accessed. Users have the choice of row or column-oriented storage and processing for any table or partition.</p>
+        </div>
+        <div class='feature'>
+          <div class='img'><img src='images/features/logo-madlib-white.png'></div>
+          <h4>Advanced Machine Learning</h4>
+          <p>Provided by <a href="http://madlib.incubator.apache.org">Apache MADLib (incubating)</a>, a library for scalable in-database analytics extending the SQL capabilities on Greenplum Database through user-defined functions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id='contribute'>
+      <div class='container'>
+        <div class='center'>
+          <h2>Contribute to the Greenplum Database</h2>
+          <p class='intro'>Greenplum is the first massively parallel open source data warehouse. It is forever changing the data warehouse market and we welcome all contributors that want to be part of this change. Below are all the ways you can get involved with Greenplum. Development contributions are encouraged but you don't have to be a developer; there are many ways to get involved with Greenplum.</p>
+        </div>
+        <div class='fifties'>
+          <div class='fifty'>
+            <div class='bg-lightgrey'>
+              <h3>Tell us about your Greenplum experience</h3>
+              <p>Use the <a href='mailto:gpdb-users@greenplum.org'>gpdb-users@greenplum.org</a> mailing list to share any kind of questions related to installation, configuration, usage, product documentation or any other area you might need help. Feel free to send us your links to blogs and presentation so we can highlight them on greenplum.org. Alternatively you can also be of the Greenplum discussion on Stack Overflow. </p>
+              <ul>
+                <li>Greenplum users mailing list: <a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-users">Read</a> &middot; <a href='mailto:gpdb-users+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-users@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-users+unsubscribe@greenplum.org'>Unsubscribe</a></li>
+                <li><a href='http://stackoverflow.com/questions/tagged/greenplum'>Greenplum on StackOverflow</a></li>
+              </ul>
+            </div>
+            <div class='bg-lightgrey'>
+              <h3>Greenplum code</h3>
+              <p>Do you have an idea for a new feature or bug fix for Greenplum? Please discuss in the <a href='mailto:gpdb-dev@greenplum.org'>gpdb-dev@greenplum.org</a> mailing list or make pull requests on Github. </p>
+              <ul>
+                <li>Greenplum dev mailing list: <a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-dev">Read</a> &middot; <a href='mailto:gpdb-dev+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-dev@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-dev+unsubscribe@greenplum.org'>Unsubscribe</a></li>
+                <li><a href='https://github.com/greenplum-db'>Greenplum on GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class='fifty'>
+            <div class='bg-lightgrey'>
+              <h3>Evangelism</h3>
+              <p>Are you a Greenplum expert? Want to share your knowledge with others? We are a collaborative community that shares best practices.</p>
+              <ul>
+                <li><a href='#events'>Greenplum Events</a></li>
+                <li><a href='mailto:gpdb-users@greenplum.org'>Greenplum users mail list</a></li>
+                <li><a href='https://twitter.com/greenplum'>Greenplum on Twitter</a></li>
+              </ul>
+            </div>
+            <div class='bg-lightgrey'>
+              <h3>Report bugs</h3>
+              <p>Write an email to <a href='mailto:gpdb-bugs@greenplum.org'>gpdb-bugs@greenplum.org</a>. </p>
+            </div>
+            <div class='bg-lightgrey'>
+              <h3>Contribute to Apache MADlib (incubating)</h3>
+              <p>Apache MADlib (incubating) is a SQL-based advanced analytics and machine learning library that works with the Greenplum database.</p>
+              <ul>
+                <li><a href='http://madlib.incubator.apache.org'>Visit Apache MADlib community</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id='learnmore' class='bg-blue'>
+      <h2>Learn More:</h2>
+      <div class='cta'><a href='https://github.com/greenplum-db/greenplum-db.github.io/wiki'>Wiki</a></div>
+      <div class='cta'><a href='http://gpdb.docs.pivotal.io/4360/common/welcome.html'>Documentation</a></div>
+    </div>
+
+    <div id='mailing-lists'>
+      <div class='container center'>
+        <h2>Greenplum Database Mailing Lists</h2>
+
+        <h3>Greenplum users mailing list</h3>
+        <p><a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-users">Read</a> &middot; <a href='mailto:gpdb-users+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-users@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-users+unsubscribe@greenplum.org'>Unsubscribe</a></p>
+        <p>Mailing list for Greenplum user communtity.</p>
+
+        <h3>Greenplum dev mailing list</h3>
+        <p><a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-dev">Read</a> &middot; <a href='mailto:gpdb-dev+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-dev@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-dev+unsubscribe@greenplum.org'>Unsubscribe</a></p>
+        <p>Mailing list for Greenplum developers communtity.</p>
+
+        <h3>Greenplum announcement mailing list</h3>
+        <p><a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-announce">Read</a> &middot; <a href='mailto:gpdb-announce+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-announce@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-announce+unsubscribe@greenplum.org'>Unsubscribe</a></p>
+        <p>Mailing list for all major Greenplum product announcements. <br/> This includes every new release and any other critical announcements. </p>
+
+        <h3>Greenplum jobs mailing list</h3>
+        <p><a href="https://groups.google.com/a/greenplum.org/forum/#!forum/gpdb-jobs">Read</a> &middot; <a href='mailto:gpdb-jobs+subscribe@greenplum.org'>Subscribe</a> &middot; <a href='mailto:gpdb-jobs@greenplum.org'>Post</a> &middot; <a href='mailto:gpdb-jobs+unsubscribe@greenplum.org'>Unsubscribe</a></p>
+        <p>Mailing list for all Greenplum related jobs. List is open <br/> to anyone that wants to announce jobs. </p>
+      </div>
+    </div>
+
+    <div id='events' class='bg-stingray'>
+      <div class='container center'>
+        <h2>Greenplum Events</h2>
+        <div class='events'>
+          <div class='event'>
+            <a href='http://2015.pgconf.eu/'>
+              <div class='inner'>
+                <div class='date'>October 27-30</div>
+                <div class='img'><img src='images/events/event-postgresql.png' /></div>
+                <h4>PostgreSQL Conference Europe</h4>
+                <p>Vienna, Austria</p>
+              </div>
+            </a>
+          </div>
+          <div class='event'>
+            <a href='http://www.pgconfsv.com/'>
+              <div class='inner'>
+                <div class='date'>November 17-18</div>
+                <div id='pgconf' class='img'><img src='images/events/event-pgconfsv.png' /></div>
+                <h4>PGConf Silicon Valley</h4>
+                <p>South San Francisco, California</p>
+              </div>
+            </a>
+          </div>
+          <div class='event'>
+            <a href='https://fosdem.org/2016/'>
+              <div class='inner'>
+                <div class='date'>January 30-31</div>
+                <div id='fosdem' class='img'><img src='images/events/event-fosdem.png' /></div>
+                <h4>FOSDEM 2016</h4>
+                <p>Brussels, Belgium</p>
+              </div>
+            </a>
+          </div>
+          <div class='event'>
+            <a href='http://conferences.oreilly.com/strata/hadoop-big-data-ca'>
+              <div class='inner'>
+                <div class='date'>March 29-31</div>
+                <div id='fosdem' class='img'><img src='images/events/event-stratahadoop.png' /></div>
+                <h4>Strata + Hadoop World</h4>
+                <p>San Jose, California</p>
+              </div>
+            </a>
+          </div>
+          <div class='event'>
+            <a href='http://greenplum.meetup.com/'>
+              <div class='inner'>
+                <div class='date'>Ongoing</div>
+                <div id='fosdem' class='img'><img src='images/events/event-meetups.png' /></div>
+                <h4>Greenplum Meetups</h4>
+                <p>Global</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class='container'>
+        <p>
+          &copy;
+          <script>var d = new Date(); document.write(d.getFullYear());</script>
+          <a href='http://pivotal.io'>Pivotal Software, Inc.</a> All Rights Reserved.
+          <a class='legal' href='http://pivotal.io/terms-of-use'>Terms of Use</a>
+          <a class='legal' href='http://pivotal.io/privacy-policy'>Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+
+  </body>
+
+</html>
