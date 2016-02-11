@@ -360,6 +360,14 @@ li:before {
   margin-top: 15px;
 }
 
+#events .event #strata img {
+  margin-top: 15px;
+}
+
+#events .event #meetups img {
+  margin-top: 15px;
+}
+
 /* Responsive */
 
 @media (max-width: 1210px) {
