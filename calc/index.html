@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<title>Greenplum Vmem Calculator</title>
+<link href='images/favicon.ico' rel='shortcut icon' type='image/vnd.microsoft.icon'>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style/calc.css">
+
+<link href='http://greenplum.org/images/favicon.ico' rel='shortcut icon' type='image/vnd.microsoft.icon'>
+
+<script src="script/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="script/bootstrap.min.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+
+
+function TriggerEvents() {
+    $( "#GPDB-ParamForm" ).change(function() {
+             CalcVmem();
+    });
+
+}
+
+function CalcVmem() {
+	var GPDBOtherMem = (parseInt($('#OtherMemory').val())) ? parseInt($('#OtherMemory').val()) : 0;
+    var RAM =  (parseInt($('#SystemMemory').val())) ? parseInt($('#SystemMemory').val()) * 1024 : 0;
+    var SWAP = (parseInt($('#SwapMemory').val())) ? parseInt($('#SwapMemory').val()) * 1024 : 0;
+    var NumOfSegs = (parseInt($('#SegsPerNode').val())) ? parseInt($('#SegsPerNode').val()) : 0;
+    var USERMEM = (RAM + SWAP - ((7.5 * 1024) + (RAM * 0.05)));
+    var KERNELMEM = (0.026 * (USERMEM / 1.7));
+    var OvercommitRatio = Math.floor((((RAM - KERNELMEM) / RAM) * 100) / 5) * 5;
+    var SuggestedVmem = Math.ceil(((((USERMEM - GPDBOtherMem) /1.7) / NumOfSegs) / 1024) * 10) / 10;
+
+   
+    $('#vmem-protect-value').html("<h4>gp_vmem_protect_limit = " + SuggestedVmem + "</h4>");
+    $('#vm-overcommit-ratio-value').html("<h4>vm.overcommit_ratio = " + OvercommitRatio + "</h4>");  
+
+    // alert user there is a change
+    $('#vmem-protect-value').animate({opacity: ".05"}, "slow");
+    $('#vm-overcommit-ratio-value').animate({opacity: ".05"}, "slow");
+
+    $('#vmem-protect-value').animate({opacity: "1"}, "slow");
+    $('#vm-overcommit-ratio-value').animate({opacity: "1"}, "slow");
+}
+
+</script>
+
+
+</head>
+<body onload="CalcVmem(); TriggerEvents();">
+
+
+    <!-- Navigation -->
+    <nav id="nav" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">GPDB Virtual Memory calculator</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://greenplum.org/">Greenplum.org</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><p>Why use the calculator?</p>
+                    <small id="ProductName"><p>GPDB virtual memory calculator estimates the best virtual memory settings based on existing large scale deployments.  The linux kernel is very good at optimizing its own memory, but we still have to ensure we do not overallocate GPDB memory resulting in out of memory events.  This calculator helps the user reserve a conservative amount of memory for kernel while maximizing the amount of memory used by GPDB.</p>
+                    <p>For more information refer to GPDB <a href="http://gpdb.docs.pivotal.io/" target="_blank">documentation</a></p></small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <form class="form-horizontal" id="GPDB-ParamForm" onSubmit="return false;" >
+<fieldset>
+
+<!-- Number input-->
+<div class="control-group">
+	<label class="control-label" for="SystemMemory">System Memory GB</label>
+	<div class="controls">
+		<input id="SystemMemory" name="SystemMemory" type="number" class="input-xlarge" value="64"> 
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="sourced from command output 'free -g'">(?)</a>
+	</div>
+</div>
+
+<!-- Number input-->
+<div class="control-group">
+	<label class="control-label" for="SwapMemory">Swap Memory GB</label>
+	<div class="controls">
+		<input id="SwapMemory" name="SwapMemory" type="number" class="input-xlarge" value="32">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="sourced from command output 'free -g'">(?)</a>
+	</div>
+</div>
+
+<!-- Number input-->
+<div class="control-group">
+	<label class="control-label" for="OtherMemory">Other Memory MB</label>
+	<div class="controls">
+		<input id="OtherMemory" name="OtherMemory" type="number" class="input-xlarge" value="0">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="The sum of other third party services running on the system that is not accounted for in this form">(?)</a>
+	</div>
+</div>
+
+<!-- Number input-->
+<div class="control-group">
+	<label class="control-label" for="SegsPerNode">Primary Segments Per Node</label>
+	<div class="controls">
+		<input id="SegsPerNode" name="SegsPerNode" type="number" class="input-xlarge" value="8">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Number of primary you expect to run on a single segment server.  Also remember to account for failed mirrors if applicable">(?)</a>
+	</div>
+    
+</div>
+</fieldset>
+</form>
+            </div>
+
+            <div class="col-md-5">
+                <h3>Recommended Max Settings</h3>
+                <ul>
+                    <li><div id="vmem-protect-value"></div>
+                        <ul>
+                            <li>Configured in postgresql.conf which is controlled by the gpconfig command</li>
+                        </ul>
+                    </li>
+                    <li><div id="vm-overcommit-ratio-value"></div>
+                        <ul>
+                            <li>Configured in /etc/sysctl.conf</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h3>Additional Notes:</h3>
+                <ul>
+                    <li>Choose the value for <strong>Primary Segments Per Node</strong> based on your mirroring strategy.  See GDPB <a href="http://gpdb.docs.pivotal.io/4360/admin_guide/highavail/topics/g-overview-of-segment-mirroring.html" target="_blank">Documentation</a> for more information on group and spread mirroring strategies
+                        <ul>
+                            <li>Given a configuration of 6 primaries and 6 mirrors we should set <strong>Primary Segments Per Node</strong> to 6+6=12 when using group mirroring</li>
+                            <li>Using the same configuration example for spread mirroring the value would be 6+2=8</li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /.container -->
+
+</body>
+
+</html>

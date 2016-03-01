@@ -1,0 +1,19 @@
+
+
+#nav {
+	background-color: #8dc63f;	
+}
+
+#nav a {
+	color: white;
+}
+
+#nav a:hover{
+	color: #30546d;
+	background-color: #8dc63f;
+}
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top*/
+    background-color: #ECECEA;
+}
