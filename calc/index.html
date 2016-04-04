@@ -39,11 +39,21 @@ function CalcVmem() {
     var USERMEM = (RAM + SWAP - ((7.5 * 1024) + (RAM * 0.05)));
     var KERNELMEM = (0.026 * (USERMEM / 1.7));
     var OvercommitRatio = Math.floor((((RAM - KERNELMEM) / RAM) * 100) / 5) * 5;
-    var SuggestedVmem = Math.ceil(((((USERMEM - GPDBOtherMem) /1.7) / NumOfSegs) / 1024) * 10) / 10;
-
-   
-    $('#vmem-protect-value').html("<h4>gp_vmem_protect_limit = " + SuggestedVmem + "</h4>");
-    $('#vm-overcommit-ratio-value').html("<h4>vm.overcommit_ratio = " + OvercommitRatio + "</h4>");  
+    var SuggestedVmem = Math.round( Math.ceil(((((USERMEM - GPDBOtherMem) /1.7) / NumOfSegs))));
+    
+    // convert SuggestedVmem to MB and ensure value is divisible by 100mb for readability
+    SuggestedVmem = ((Math.floor((SuggestedVmem + 50) / 100) * 100) || SuggestedVmem);
+    
+    /* Ensure suggestedVmem or OvercommitRatio is not a value less than 0 as it would suggest a bad input parameter
+    We do not need to be more descriptive here because the "Invalid Parameters" will be animated
+    based on the users immediate inputs  */
+    if ( SuggestedVmem <=0 || OvercommitRatio <=0 ) {  
+        $('#vmem-protect-value').html("<h4>Invalid Parameters</h4>");
+        $('#vm-overcommit-ratio-value').html("<h4>Invalid Parameters</h4>");  
+    } else {
+        $('#vmem-protect-value').html("<h4>gpconfig -c gp_vmem_protect_limit -v " + SuggestedVmem + "</h4>");
+        $('#vm-overcommit-ratio-value').html("<h4>vm.overcommit_ratio = " + OvercommitRatio + "</h4>");  
+    }
 
     // alert user there is a change
     $('#vmem-protect-value').animate({opacity: ".05"}, "slow");
@@ -152,12 +162,12 @@ function CalcVmem() {
                 <ul>
                     <li><div id="vmem-protect-value"></div>
                         <ul>
-                            <li>Configured in postgresql.conf which is controlled by the gpconfig command</li>
+                            <li>Value is in MB and configured in postgresql.conf which is controlled by the gpconfig command</li>
                         </ul>
                     </li>
                     <li><div id="vm-overcommit-ratio-value"></div>
                         <ul>
-                            <li>Configured in /etc/sysctl.conf</li>
+                            <li>Value is a percentage and configured in /etc/sysctl.conf</li>
                         </ul>
                     </li>
                 </ul>
