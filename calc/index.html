@@ -32,7 +32,10 @@ function TriggerEvents() {
 }
 
 function CalcVmem() {
-	var GPDBOtherMem = (parseInt($('#OtherMemory').val())) ? parseInt($('#OtherMemory').val()) : 0;
+    var GPDBOtherMem = (parseInt($('#OtherMemory').val())) ? parseInt($('#OtherMemory').val()) : 0;
+    var GPTextHeapSize = (parseInt($('#GPTextHeapSize').val())) ? parseInt($('#GPTextHeapSize').val()) : 0;
+    var GPTextNumOfPids =  (parseInt($('#GPTextNodes').val())) ? parseInt($('#GPTextNodes').val()) : 0;
+    GPDBOtherMem += GPTextHeapSize * GPTextNumOfPids;
     var RAM =  (parseInt($('#SystemMemory').val())) ? parseInt($('#SystemMemory').val()) * 1024 : 0;
     var SWAP = (parseInt($('#SwapMemory').val())) ? parseInt($('#SwapMemory').val()) * 1024 : 0;
     var NumOfSegs = (parseInt($('#SegsPerNode').val())) ? parseInt($('#SegsPerNode').val()) : 0;
@@ -137,6 +140,24 @@ function CalcVmem() {
 
 <!-- Number input-->
 <div class="control-group">
+	<label class="control-label" for="GPTextNodes">GPTEXT Nodes Per Server</label>
+	<div class="controls">
+		<input id="GPTextNodes" name="GPTextNodes" type="number" class="input-xlarge" value="0">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Total number of SOLR processes running on a single server">(?)</a>
+	</div>
+</div>
+
+<!-- Number input-->
+<div class="control-group">
+	<label class="control-label" for="GPTextHeapSize">GPTEXT Max Heap Size MB</label>
+	<div class="controls">
+		<input id="GPTextHeapSize" name="GPTextHeapSize" type="number" class="input-xlarge" value="0">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="This should be the numeric value used for GPTEXT JVM option -Xmx<value>M which defaults to -Xmx2048M">(?)</a>
+	</div>
+</div>
+
+<!-- Number input-->
+<div class="control-group">
 	<label class="control-label" for="OtherMemory">Other Memory MB</label>
 	<div class="controls">
 		<input id="OtherMemory" name="OtherMemory" type="number" class="input-xlarge" value="0">
@@ -146,7 +167,7 @@ function CalcVmem() {
 
 <!-- Number input-->
 <div class="control-group">
-	<label class="control-label" for="SegsPerNode">Primary Segments Per Node</label>
+	<label class="control-label" for="SegsPerNode">Primary Segments Per Server</label>
 	<div class="controls">
 		<input id="SegsPerNode" name="SegsPerNode" type="number" class="input-xlarge" value="8">
 		<a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="Number of primary you expect to run on a single segment server.  Also remember to account for failed mirrors if applicable">(?)</a>
