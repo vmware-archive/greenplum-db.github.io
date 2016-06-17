@@ -352,16 +352,12 @@ li:before {
   margin: 10px 0 0;
 }
 
-#events .event #pgconf img {
-  margin-top: 5px;
-}
-
-#events .event #strata img {
-  margin-top: 15px;
-}
-
 #events .event #meetups img {
   margin-top: 15px;
+}
+
+#events .event #greenplum-chat img {
+  margin-top: 5px;
 }
 
 /* Responsive */
