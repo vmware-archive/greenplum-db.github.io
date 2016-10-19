@@ -343,21 +343,18 @@ li:before {
   margin-bottom: 35px;
 }
 
-#events .event .img {
-  min-height: 90px;
-  margin-bottom: 30px;
-}
-
 #events .event p {
   margin: 10px 0 0;
 }
 
 #events .event .meetups img {
   margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 #events .event .greenplum-chat img {
   margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 /* Responsive */
