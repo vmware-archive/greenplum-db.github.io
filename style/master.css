@@ -352,11 +352,11 @@ li:before {
   margin: 10px 0 0;
 }
 
-#events .event #meetups img {
+#events .event .meetups img {
   margin-top: 15px;
 }
 
-#events .event #greenplum-chat img {
+#events .event .greenplum-chat img {
   margin-top: 5px;
 }
 
