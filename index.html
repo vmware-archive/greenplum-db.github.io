@@ -49,6 +49,7 @@
     <div id='nav'>
       <div class='container center'>
         <a href="#contribute">Contribute</a>
+        <a href="#ci">CI</a>
         <a href="#mailing-lists">Mailing Lists</a>
         <a href="#events">Events</a>
         <a href="https://github.com/greenplum-db/gpdb/wiki">Wiki</a>
@@ -157,6 +158,24 @@
         </div>
       </div>
     </div>
+
+    <div id='ci'>
+      <div class='container center'>
+        <h2>Greenplum Database Continuous Integration</h2>
+        <p>We are committed to keeping Greenplum code base clean and defect free, especially when those defects can be caught early on via automated Continuous Integration tools. There are two main CI servers you should be aware of when working on Greenplum: 
+
+        <p><a href="https://travis-ci.org/greenplum-db">Travis CI</a> &middot; <a href='https://gpdb.ci.pivotalci.info/teams/gpdb'>Concourse CI</a></p>
+        <p>Travis CI runs a simple build on all your GH pull requests and doesn't really do much else. It provides a minimum level of assurance that
+        a change submitted to Greenplum codebase won't break the build, but it tells you nothing about different platforms and testing. That's where
+Concourse pipelines come in. They provide a much more sophisticated level of testing and validation. In fact, the other verification for each PR comes from Concourse CI. Note that each PR generates a separate build and you find which PR is associated which what build <a href="https://gpdb.ci.pivotalci.info/teams/gpdb/pipelines/gpdb_pr/resources/gpdb_pr">here</a>.</p>
+
+        <p>While not strictly speaking required, sometimes knowing the internals of both 
+           <a href="https://docs.travis-ci.com/user/getting-started">Travis CI</a>
+           and <a href="http://concourse.ci/introduction.html">Concourse CI</a> can come in handy.<p> 
+
+      </div>
+    </div>
+
 
     <div id='learnmore' class='bg-blue'>
       <h2>Learn More:</h2>
