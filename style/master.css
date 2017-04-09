@@ -112,6 +112,9 @@ p {
 .bg-blue {
   background: #1e90ff;
 }
+.bg-paleblue {
+  background: #8fc1f1;
+}
 .bg-stingray {
   background: #93a8b3;
 }
@@ -277,6 +280,34 @@ li:before {
 }
 
 #learnmore .cta a {
+  color: #333333;
+}
+
+#tools {
+  padding: 70px 0;
+  text-align: center;
+}
+
+#tools .container {
+  max-width: 635px;
+}
+
+#tools h2 {
+  color: white;
+  display: inline-block;
+  padding-right: 50px;
+}
+
+#tools .cta {
+  background-color: white;
+  display: inline-block;
+}
+
+#tools .cta:hover {
+  background-color: #f7f7f7;
+}
+
+#tools .cta a {
   color: #333333;
 }
 
