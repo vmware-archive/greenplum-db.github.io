@@ -118,6 +118,9 @@ p {
 .bg-stingray {
   background: #93a8b3;
 }
+.bg-download {
+  background: #6eabe6;
+}
 .fifty {
   display: inline-block;
   width: 49.5%;
@@ -225,6 +228,52 @@ li:before {
 
 .feature a:hover {
   color: #172935;
+}
+
+#download {
+  padding: 80px 0 60px;
+}
+
+#download h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+#download .intro {
+  font-size: 18px;
+  line-height: 1.55em;
+  color: white;
+}
+
+#download .bg-download {
+  padding: 30px;
+  margin: 0 30px 30px 0;
+}
+
+#download .bg-download h3 {
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+#download .bg-download p {
+  color: #979797;
+  line-height: 1.8em;
+  color: white;
+}
+
+#download a {
+  color: white;
+}
+#download a:hover {
+  color: white;
+}
+#download a:visited {
+  color: white;
+}
+
+#download li {
+  color: white; !important
 }
 
 #contribute {
@@ -425,6 +474,9 @@ li:before {
     width: 100%;
   }
   #contribute .bg-lightgrey {
+    margin: 0 0 30px 0;
+  }
+  #download .fifty {
     margin: 0 0 30px 0;
   }
   #learnmore h2 {
