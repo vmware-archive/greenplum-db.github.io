@@ -376,6 +376,9 @@ li:before {
 #mailing-lists p {
   margin-bottom: 20px;
   color: #979797;
+  margin: auto;
+  width: 50%;
+  vertical-align: middle;
 }
 
 #events {
@@ -446,6 +449,10 @@ li:before {
   #intro-text p {
     max-width: 100%;
   }
+
+  #mailing-lists p {
+    width: 50%;
+  }
 }
 
 @media (max-width: 815px) {
@@ -455,6 +462,9 @@ li:before {
   .feature,
   #events .event {
     width: 100%;
+  }
+  #mailing-lists p {
+    width: 75%;
   }
 }
 
@@ -482,6 +492,9 @@ li:before {
   #learnmore h2 {
     display: block;
     padding: 0 0 20px 0;
+  }
+  #mailing-lists p {
+    width: 90%;
   }
 }
 
