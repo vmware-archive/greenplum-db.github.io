@@ -472,7 +472,7 @@ li:before {
   #billboard {
     padding: 100px 20px 80px;
   }
-  #billboard .cta {
+  .cta {
     margin-bottom: 20px;
   }
   .float-left,
@@ -490,6 +490,10 @@ li:before {
     margin: 0 0 30px 0;
   }
   #learnmore h2 {
+    display: block;
+    padding: 0 0 20px 0;
+  }
+  #tools h2 {
     display: block;
     padding: 0 0 20px 0;
   }
