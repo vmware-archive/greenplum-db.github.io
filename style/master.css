@@ -276,6 +276,13 @@ li:before {
   color: white; !important
 }
 
+pre {
+  background-color:#b0c4de;
+  padding-left:10px;
+  padding-top:15px;
+  color: #f0f8ff;
+}
+
 #contribute {
   padding: 80px 0 60px;
 }
@@ -453,6 +460,9 @@ li:before {
   #mailing-lists p {
     width: 50%;
   }
+  pre {
+    font-size: 12pt;
+  }
 }
 
 @media (max-width: 815px) {
@@ -465,6 +475,9 @@ li:before {
   }
   #mailing-lists p {
     width: 75%;
+  }
+  pre {
+    font-size: 10pt;
   }
 }
 
@@ -499,6 +512,9 @@ li:before {
   }
   #mailing-lists p {
     width: 90%;
+  }
+  pre {
+    font-size: 8pt;
   }
 }
 
